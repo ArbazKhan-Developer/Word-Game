@@ -28,11 +28,14 @@ function showwords(){
         let hide = document.getElementById('hide')
         let str = input.value
         let globalRegex = new RegExp(word, 'i');
+        let job =document.getElementById('job')
+        let sorry =document.getElementById('sorry')
         // console.log(str,globalRegex);
         if (globalRegex.test(str)){
             newpara.innerHTML = "Great You win"
             input.style.display ="none"
             hide.innerHTML = words[b];
+            job.play();
             // console.log('success');
             
         }else{
@@ -40,6 +43,7 @@ function showwords(){
             document.getElementById('demo').innerHTML ='you lose'
             input.style.display ="none"
             hide.innerHTML = words[b];
+            sorry.play();
         }
         clk.innerHTML = 'Try next';
         next();
@@ -79,6 +83,8 @@ btn.addEventListener('click',()=>{
     timer();
     if (!play) {
         play = true;
+        let music =document.getElementById('music');
+        music.play();
         btn.innerHTML ='Fix word';
         para.style.display = "block"
         input.style.display= "block"
