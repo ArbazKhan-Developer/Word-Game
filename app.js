@@ -23,9 +23,13 @@ function showwords(){
     let clk = document.getElementById('btn');
     clk.addEventListener('click',()=>{
         let input = document.querySelector('input');
+        let word = words[b];
         let newpara=  document.getElementById('para');
         let hide = document.getElementById('hide')
-        if (input.value==words[b]) {
+        let str = input.value
+        let globalRegex = new RegExp(word, 'i');
+        // console.log(str,globalRegex);
+        if (globalRegex.test(str)){
             newpara.innerHTML = "Great You win"
             input.style.display ="none"
             hide.innerHTML = words[b];
